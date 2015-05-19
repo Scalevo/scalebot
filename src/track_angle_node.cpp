@@ -22,7 +22,7 @@ private:
   // Messages
   sensor_msgs::JointState joint_state;
 
-  // Parameters of Transformation
+  // Wheelchair Parameters
   double l;
   double t;
   double t_x;
@@ -47,7 +47,7 @@ TrackAngle::TrackAngle(ros::NodeHandle n): l(.375), n_(n), phi(0)
 {
   setData();
   sub_lambda = n_.subscribe("/Lambda",10, &TrackAngle::lambdaCallback, this);
-  joint_pub = n_.advertise<sensor_msgs::JointState>("joint_states", 1);
+  joint_pub = n_.advertise<sensor_msgs::JointState>("/joint_states", 1);
 }
 
 void TrackAngle::lambdaCallback(const std_msgs::Float64MultiArray::ConstPtr& msg) {
