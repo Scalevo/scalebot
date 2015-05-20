@@ -58,13 +58,16 @@ void TrackAngle::lambdaCallback(const std_msgs::Float64MultiArray::ConstPtr& msg
   phi = acos((t*t + f*f - l*l)/(2*t*f)) - atan(t_z/t_x) - atan(f_z/f_x);
 
   joint_state.header.stamp = ros::Time::now();
-  joint_state.name.resize(2);
-  joint_state.position.resize(2);
+  joint_state.name.resize(3);
+  joint_state.position.resize(3);
   joint_state.name[0] = "track_forks";
   joint_state.position[0] = phi;
 
   joint_state.name[1] = "base_to_laser_mount";
   joint_state.position[1] = 0;
+
+  joint_state.name[2] = "support_pivot";
+  joint_state.position[2] = 0;
 
   joint_pub.publish(joint_state);
 }
