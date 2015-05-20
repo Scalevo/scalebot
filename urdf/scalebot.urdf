@@ -22,7 +22,6 @@
           scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="white"/>
-
     </visual>
   </link>
 
@@ -30,7 +29,25 @@
     <parent link="base"/>
     <child link="tracks"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="-.4 -0.02 0" rpy="0 0 0"/>
+    <origin xyz="-.39 -0.0148 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="support">
+    <visual>
+      <origin xyz="-0.025 -0.15 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://scalebot/meshes/support.stl"
+          scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="support_pivot" type="continuous">
+    <parent link="base"/>
+    <child link="support"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="-0.025 -0.15 0" rpy="0 0 0"/>
   </joint>
 
   <link name="laser_mount_link">
@@ -47,7 +64,7 @@
     <parent link="base"/>
     <child link="laser_mount_link"/>
     <axis xyz="0 1 0"/>
-    <origin xyz=".24 0 .18" rpy="0 0 0"/>
+    <origin xyz=".233 0 .183" rpy="0 0 0"/>
   </joint>
 
 </robot>
