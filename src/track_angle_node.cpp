@@ -41,8 +41,6 @@ private:
 
 };
 
-
-
 TrackAngle::TrackAngle(ros::NodeHandle n): l(.375), n_(n), phi(0)
 {
   setData();
