@@ -81,7 +81,7 @@ void TrackAngle::lambdaCallback(const std_msgs::Float64MultiArray::ConstPtr& msg
   joint_state.position[1] = 0;
 
   joint_state.name[2] = "support_pivot";
-  joint_state.position[2] = sup_angle;
+  joint_state.position[2] = -sup_angle;
 
 
   joint_pub.publish(joint_state);
